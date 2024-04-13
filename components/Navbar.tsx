@@ -1,6 +1,8 @@
+import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Button from "./Button";
 
 const Navbar = () => {
   return (
@@ -8,7 +10,35 @@ const Navbar = () => {
       <Link href="/">
         <Image src="/hilink-logo.svg" alt="TravelLogo" width={74} height={29} />
       </Link>
-      <ul className="hidden h-full gap-12 lg:flex"></ul>
+
+      <ul className="hidden h-full gap-12 lg:flex">
+        {NAV_LINKS.map((link, index) => (
+          <li key={link.key}>
+            <Link href={link.href}>
+              <p className="regular-16 text-gray-50 flexCenter pb-1.5 transition-all hover:font-bold">
+                {link.label}
+              </p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="lg:flexCenter hidden">
+        <Button
+          title="Log in"
+          type="button"
+          icon="/user.svg"
+          variant="btn_dark_green"
+        />
+      </div>
+
+      <Image
+        src={"/menu.svg"}
+        alt="menu"
+        width={32}
+        height={32}
+        className="inline-block cursor-pointer lg:hidden"
+      />
     </nav>
   );
 };
