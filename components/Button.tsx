@@ -5,7 +5,7 @@ interface ButtonProps {
   title: string;
   type: "button" | "reset" | "submit";
   icon?: string;
-  variant: "btn_dark_green";
+  variant: "btn_dark_green" | "btn_green" | "btn_white_text";
 }
 
 const Button = ({ title, type, icon, variant }: ButtonProps) => {
